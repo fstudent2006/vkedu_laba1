@@ -1,0 +1,122 @@
+{
+  "tpch_schema": "sf1",
+  "checks": {
+    "counts": {
+      "part": {
+        "tpch": 200000,
+        "bronze_gzip": 200000,
+        "bronze_zstd": 200000,
+        "bronze_orc": 200000
+      },
+      "partsupp": {
+        "tpch": 800000,
+        "bronze_gzip": 800000,
+        "bronze_zstd": 800000,
+        "bronze_orc": 800000
+      },
+      "supplier": {
+        "tpch": 10000,
+        "bronze_gzip": 10000,
+        "bronze_zstd": 10000,
+        "bronze_orc": 10000
+      }
+    },
+    "q16_gold_equal": true,
+    "missing": 0,
+    "extra": 0,
+    "gold_rows": 18314,
+    "gold_sample": [
+      [
+        "Brand#41",
+        "MEDIUM BRUSHED TIN",
+        3,
+        28
+      ],
+      [
+        "Brand#54",
+        "STANDARD BRUSHED COPPER",
+        14,
+        27
+      ],
+      [
+        "Brand#11",
+        "STANDARD BRUSHED TIN",
+        23,
+        24
+      ],
+      [
+        "Brand#11",
+        "STANDARD BURNISHED BRASS",
+        36,
+        24
+      ],
+      [
+        "Brand#15",
+        "MEDIUM ANODIZED NICKEL",
+        3,
+        24
+      ]
+    ]
+  },
+  "benchmark": {
+    "bronze_gzip": {
+      "data_files_bytes": {
+        "part": 761516,
+        "partsupp": 2337133,
+        "supplier": 146584
+      },
+      "total_bytes": 3245233,
+      "rows_returned": 18314,
+      "result_sha256": "c0a52957d57a94a3a644e130870065de8adef41759b0c00b51bcc3af012f0495",
+      "warmup_seconds": 1.117,
+      "runs_seconds": [
+        0.746,
+        0.713,
+        0.793
+      ],
+      "mean_seconds": 0.751
+    },
+    "bronze_zstd": {
+      "data_files_bytes": {
+        "part": 685652,
+        "partsupp": 2285407,
+        "supplier": 172165
+      },
+      "total_bytes": 3143224,
+      "rows_returned": 18314,
+      "result_sha256": "c0a52957d57a94a3a644e130870065de8adef41759b0c00b51bcc3af012f0495",
+      "warmup_seconds": 0.656,
+      "runs_seconds": [
+        0.53,
+        0.652,
+        0.62
+      ],
+      "mean_seconds": 0.601
+    },
+    "bronze_orc": {
+      "data_files_bytes": {
+        "part": 463887,
+        "partsupp": 1403506,
+        "supplier": 154678
+      },
+      "total_bytes": 2022071,
+      "rows_returned": 18314,
+      "result_sha256": "c0a52957d57a94a3a644e130870065de8adef41759b0c00b51bcc3af012f0495",
+      "warmup_seconds": 0.711,
+      "runs_seconds": [
+        0.673,
+        0.573,
+        0.503
+      ],
+      "mean_seconds": 0.583
+    }
+  },
+  "extras": {
+    "evolution": "column notes added and renamed processing_notes",
+    "old_rows_with_null": 10,
+    "snapshot_id": 1080364811965887100,
+    "time_travel_before": 10,
+    "time_travel_after": 11
+  },
+  "total_seconds": 32.82
+}
